@@ -1,0 +1,10 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/logo.jpeg"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="/src/styles.css"><title>Join — ChemUp</title></head>
+<body data-page="auth"><div class="grain" aria-hidden="true"></div>
+<main class="auth"><svg class="auth__mark" viewBox="0 0 800 600" aria-hidden="true"><ellipse cx="400" cy="300" rx="380" ry="130" transform="rotate(-18 400 300)"/><ellipse cx="400" cy="300" rx="350" ry="115" transform="rotate(24 400 300)"/><circle class="hero__disc" cx="400" cy="300" r="236"/></svg>
+<section class="auth__card"><p class="label">Chemistry Upbound</p><h1>Join the <em>orbit</em></h1>
+<div class="auth__tabs"><button class="on" data-tab="signup">Sign up</button><button data-tab="login">Log in</button></div>
+<form id="signup"><input name="name" placeholder="Full name" required autocomplete="name"><input name="email" type="email" placeholder="Email" required autocomplete="email"><input name="school" placeholder="University / school"><input name="password" type="password" placeholder="Password (min. 8 characters)" minlength="8" required autocomplete="new-password">
+<label class="check"><input type="checkbox" required> I agree that my name and email are shared with the ChemUp team.</label><button class="btn" type="submit">Create account</button></form>
+<form id="login" hidden><input name="email" type="email" placeholder="Email" required autocomplete="email"><input name="password" type="password" placeholder="Password" required autocomplete="current-password"><button class="btn" type="submit">Log in</button></form>
+<p id="msg" class="auth__msg"></p></section></main>
+<script type="module" src="/src/site.js"></script><script type="module" src="/src/auth.js"></script></body></html>
