@@ -10,15 +10,16 @@ const api = (path, body) => fetch(`${AUTH.url}/auth/v1/${path}`, { method: 'POST
 $('#signup').addEventListener('submit', async (e) => {
   e.preventDefault(); const f = Object.fromEntries(new FormData(e.target)); msg('Creating your account…');
   try {
-    if (AUTH.url) await api('signup', { email: f.email, password: f.password, data: { name: f.name, school: f.school } });
-    if (AUTH.notifyUrl) fetch(AUTH.notifyUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: f.name, email: f.email, school: f.school }) }).catch(() => {});
+    if (AUTH.url) await api('signup', { email: f.email, password: f.password, data: { name: f.name, school: f.school, country: f.country } });
+    if (AUTH.notifyUrl) fetch(AUTH.notifyUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: f.name, email: f.email, school: f.school, country: f.country }) }).catch(() => {});
     msg(AUTH.url ? 'Done. Check your email to confirm, then log in.' : 'Demo mode: backend not connected yet, nothing was saved.');
   } catch (err) { msg(err.message, true); }
 });
 $('#login').addEventListener('submit', async (e) => {
   e.preventDefault(); const f = Object.fromEntries(new FormData(e.target)); msg('Logging in…');
   try {
-    if (AUTH.url) { const j = await api('token?grant_type=password', { email: f.email, password: f.password }); localStorage.setItem('chemup_token', j.access_token); }
-    location.href = '/';
+    if (AUTH.url) { const j = await api('token?grant_type=password', { email: f.email, password: f.password }); localStorage.setItem('chemup_token', j.access_token); localStorage.setItem('chemup_refresh', j.refresh_token); }
+    const next = new URLSearchParams(location.search).get('next');
+    location.href = next && next.startsWith('/') && !next.startsWith('//') ? next : '/';
   } catch (err) { msg(err.message, true); }
 });

@@ -46,6 +46,7 @@ lenis.on('scroll', ({ scroll, limit, velocity }) => {
 });
 (function lenisLoop(t) { lenis.raf(t); requestAnimationFrame(lenisLoop); })(0);
 
+document.querySelectorAll('.hero__eyebrow').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); lenis.scrollTo('#this-week'); }));
 // Sidebar anchors on the home page scroll through Lenis
 document.querySelectorAll('.nav a[href^="/#"]').forEach((a) => a.addEventListener('click', (e) => {
   const target = document.querySelector(a.getAttribute('href').slice(1));

@@ -106,3 +106,24 @@ main>.sec:first-child{padding-top:150px}
 .nav__mobile-auth{display:none}
 .nav__status{color:#fff}
 @media(max-width:1360px){.nav.open .nav__mobile-auth{display:block}}
+
+/* ---- v3: brand lockup, hero arrows, notes, account ---- */
+.nav__brand{display:flex;flex-direction:column;line-height:1;gap:6px}
+.nav__brand small{font:400 9.5px var(--mono);letter-spacing:.26em;text-transform:uppercase;color:#fff;opacity:.75}
+.cu{text-transform:none;letter-spacing:.02em}
+.nav__status{gap:18px}
+.nav__status a{color:#fff}.nav__status a:hover{opacity:.55}
+.nav__mobile-auth{display:none}
+@media(max-width:1360px){.nav.open .nav__mobile-auth{display:flex;flex-direction:column;gap:14px}}
+.hero__eyebrow{display:inline-flex;align-items:center;gap:22px;font:400 12px var(--mono);letter-spacing:.3em;text-transform:uppercase;color:var(--fg);margin-bottom:28px;cursor:pointer;transition:color .2s}
+.hero__eyebrow .arrow{font-size:30px;color:var(--acc);animation:bob 1.8s ease-in-out infinite}
+.hero__eyebrow:hover{color:var(--acc)}
+@keyframes bob{50%{transform:translateY(8px)}}
+.wk{display:block;margin-top:18px;transition:color .2s,padding-left .3s}
+.wk:hover{color:var(--acc);padding-left:8px}
+.wk p{color:var(--dim)}
+.lang-note{margin-top:56px}
+.video span{font:400 14px var(--mono);letter-spacing:.24em;text-transform:uppercase;color:var(--dim)}
+#lessons a:hover{color:var(--acc)}
+.acct dt{font:400 11px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--acc2)}
+.acct dd{margin:2px 0 18px;font-size:18px;word-break:break-word}

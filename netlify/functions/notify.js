@@ -1,3 +1,5 @@
+// Receives name/email/school after sign-up and posts it to a private Discord channel.
+// DISCORD_WEBHOOK_URL lives in Netlify environment variables, never in frontend code.
 const CORS = {
   'Access-Control-Allow-Origin': 'https://chemistryupbound.org',
   'Access-Control-Allow-Headers': 'Content-Type',
