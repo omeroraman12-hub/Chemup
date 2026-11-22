@@ -5,10 +5,10 @@ if (AUTH.url && !localStorage.getItem('chemup_token') && page !== 'auth') locati
 const links = [['Home','/'],['This week in ChemUp','/#this-week'],['Courses','/courses.html'],['Mini Lectures','/mini-lectures.html'],['Resources','/resources.html'],['About','/#about'],['Join our team','/#join'],['Contact','/#contact']];
 document.body.insertAdjacentHTML('afterbegin', `
 <header class="nav"><a class="nav__brand" href="/">Chem<em>Up</em></a>
-<nav class="nav__links">${links.map(([n,h]) => `<a href="${h}">${n}</a>`).join('')}</nav>
-<span class="nav__status"><i></i>New lessons weekly</span>
+<nav class="nav__links">${links.map(([n,h]) => `<a href="${h}">${n}</a>`).join('')}<a class="nav__mobile-auth" href="/auth.html">Sign up / Log in</a></nav>
+<a class="nav__status" href="/auth.html"><i></i>Sign up</a>
 <button class="burger" aria-label="Menu">Menu</button></header>`);
-if (localStorage.getItem('chemup_token')) { const st = document.querySelector('.nav__status'); st.innerHTML = '<i></i>Sign out'; st.style.cursor = 'pointer'; st.onclick = () => { localStorage.removeItem('chemup_token'); location.href = '/auth.html'; }; }
+if (localStorage.getItem('chemup_token')) { const st = document.querySelector('.nav__status'); st.innerHTML = '<i></i>Sign out'; st.style.cursor = 'pointer'; st.onclick = (e) => { e.preventDefault(); localStorage.removeItem('chemup_token'); location.href = '/auth.html'; }; }
 const navEl = document.querySelector('.nav');
 document.querySelector('.burger').onclick = () => navEl.classList.toggle('open');
 navEl.querySelectorAll('.nav__links a').forEach((a) => a.addEventListener('click', () => navEl.classList.remove('open')));
