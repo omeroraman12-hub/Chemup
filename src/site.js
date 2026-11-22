@@ -1,5 +1,5 @@
 import { AUTH } from './config.js';
-import { courses, faqs } from './data.js';
+import { courses, faqs, courseFaqs } from './data.js';
 const page = document.body.dataset.page;
 const token = localStorage.getItem('chemup_token');
 // Only courses, lessons, resources and the account page need an account
@@ -18,7 +18,7 @@ const navEl = document.querySelector('.nav');
 document.querySelector('.burger').onclick = () => navEl.classList.toggle('open');
 navEl.querySelectorAll('.nav__links a').forEach((a) => a.addEventListener('click', () => navEl.classList.remove('open')));
 document.querySelectorAll('[data-logout]').forEach((a) => (a.onclick = (e) => { e.preventDefault(); logout(); }));
-document.querySelectorAll('[data-faq]').forEach((el) => (el.innerHTML = faqs.map(([q, a]) => `<details class="reveal-text"><summary>${q}</summary><p>${a}</p></details>`).join('')));
+document.querySelectorAll('[data-faq]').forEach((el) => (el.innerHTML = (el.dataset.faq === 'course' ? courseFaqs : faqs).map(([q, a]) => `<details class="reveal-text"><summary>${q}</summary><p>${a}</p></details>`).join('')));
 const cover = (i) => `style="--h:${150 + i * 28}"`;
 const none = '<p class="dim">No content yet.</p>';
 

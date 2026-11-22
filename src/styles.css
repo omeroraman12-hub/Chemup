@@ -127,3 +127,7 @@ main>.sec:first-child{padding-top:150px}
 #lessons a:hover{color:var(--acc)}
 .acct dt{font:400 11px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--acc2)}
 .acct dd{margin:2px 0 18px;font-size:18px;word-break:break-word}
+
+/* ---- v3.1: brand side by side ---- */
+.nav__brand{flex-direction:row;align-items:baseline;gap:14px;font-size:30px}
+@media(max-width:480px){.nav__brand small{display:none}}
